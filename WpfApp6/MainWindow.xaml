@@ -1,0 +1,833 @@
+﻿<Window x:Class="WpfApp6.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp6"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="410" Width="853"
+        WindowStyle="ToolWindow" ResizeMode="NoResize"
+        KeyUp="Border_KeyUp" KeyDown="Border_KeyDown">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Grid.ColumnSpan="2">
+            <Label Name="labelSpeed" Content="Speed: chars/min" FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+            <Label Name="labelFails" Content="Fail: " VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="16" Margin="0,0,400,0"/>
+            <Slider Name="slider1" HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" Margin="0,10,120,0" Maximum="20" Minimum="2" ValueChanged="Slider_ValueChanged"/>
+            <CheckBox Name="checkBox1" Content="Case Sensitive" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10"/>
+            <Button Name="buttonStart" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="18" Width="120" Margin="0,0,120,0" Content="Start" FontSize="12" Click="Start_Click"/>
+            <Button Name="buttonStop" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="18" Width="120" Content="Stop" FontSize="12" Click="Stop_Click"/>
+            <Label Name="labelDificulty" Content="Dificulty: " FontSize="14" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,3,240,0" />
+        </Grid>
+
+        <Grid Grid.Row="1" Background="#ADD8E6" Grid.ColumnSpan="2">
+            <Label VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,0,0,0" Name="labelString" Content="" FontSize="14"/>
+            <Label VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,0" Name="labelWriteText" Content="" FontSize="14"/>
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.ColumnSpan="2" Name="gridKeybord">
+            <Border
+                Name="Oem3"
+                Tag="#F07795"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="5"
+                Background="#F07795"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="26" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="`"/>
+            </Border>
+            <Border
+                Name="D1"
+                Tag="#F07795"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="60,5,0,0"
+                Background="#F07795"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10"
+                KeyUp="Border_KeyUp" KeyDown="Border_KeyDown">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="26" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="1"/>
+            </Border>
+            <Border
+                Name="D2"
+                Tag="#F07795"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="115,5,0,0"
+                Background="#F07795"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10"
+                KeyUp="Border_KeyUp" KeyDown="Border_KeyDown">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="26" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="2"/>
+            </Border>
+            <Border
+                Name="D3"
+                Tag="#E6F077"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="170,5,0,0"
+                Background="#E6F077"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10"
+                KeyUp="Border_KeyUp" KeyDown="Border_KeyDown">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="26" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="3"/>
+            </Border>
+            <Border
+                Name="D4"
+                Tag="#7FF077"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="225,5,0,0"
+                Background="#7FF077"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10"
+                KeyUp="Border_KeyUp" KeyDown="Border_KeyDown">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="26" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="4"/>
+            </Border>
+            <Border
+                Name="D5"
+                Tag="#77BEF0"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="280,5,0,0"
+                Background="#77BEF0"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10"
+                KeyUp="Border_KeyUp" KeyDown="Border_KeyDown">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="26" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="5"/>
+            </Border>
+            <Border
+                Name="D6"
+                Tag="#77BEF0"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="335,5,0,0"
+                Background="#77BEF0"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10"
+                KeyUp="Border_KeyUp" KeyDown="Border_KeyDown">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="26" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="6"/>
+            </Border>
+            <Border
+                Name="D7"
+                Tag="#DB77F0"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="390,5,0,0"
+                Background="#DB77F0"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10"
+                KeyUp="Border_KeyUp" KeyDown="Border_KeyDown">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="26" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="7"/>
+            </Border>
+            <Border
+                Name="D8"
+                Tag="#DB77F0"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="445,5,0,0"
+                Background="#DB77F0"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10"
+                KeyUp="Border_KeyUp" KeyDown="Border_KeyDown">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="26" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="8"/>
+            </Border>
+            <Border
+                Name="D9"
+                Tag="#F07795"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="500,5,0,0"
+                Background="#F07795"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10"
+                KeyUp="Border_KeyUp" KeyDown="Border_KeyDown">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="26" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="9"/>
+            </Border>
+            <Border
+                Name="D0"
+                Tag="#E6F077"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="555,5,0,0"
+                Background="#E6F077"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10"
+                KeyUp="Border_KeyUp" KeyDown="Border_KeyDown">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="26" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="0"/>
+            </Border>
+            <Border
+                Name="OemMinus"
+                Tag="#7FF077"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="610,5,0,0"
+                Background="#7FF077"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10"
+                KeyUp="Border_KeyUp" KeyDown="Border_KeyDown">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="26" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="-"/>
+            </Border>
+            <Border
+                Name="OemPlus"
+                Tag="#7FF077"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="665,5,0,0"
+                Background="#7FF077"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10"
+                KeyUp="Border_KeyUp" KeyDown="Border_KeyDown">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="26" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="+"/>
+            </Border>
+            <Border
+                Name="Back"
+                Tag="#B5B5B5"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="720,5,0,0"
+                Background="#B5B5B5"
+                Width="120" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10"
+                KeyUp="Border_KeyUp" KeyDown="Border_KeyDown">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="Backspace"/>
+            </Border>
+
+            <Border
+                Name="Tab"
+                Tag="#B5B5B5"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="5,60,0,0"
+                Background="#B5B5B5"
+                Width="75" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="Tab"/>
+            </Border>
+            <Border
+                Name="Q"
+                Tag="#F07795"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="85,60,0,0"
+                Background="#F07795"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="q"/>
+            </Border>
+            <Border
+                Name="W"
+                Tag="#E6F077"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="140,60,0,0"
+                Background="#E6F077"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="w"/>
+            </Border>
+            <Border
+                Name="E"
+                Tag="#7FF077"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="195,60,0,0"
+                Background="#7FF077"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="e"/>
+            </Border>
+            <Border
+                Name="R"
+                Tag="#77BEF0"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="250,60,0,0"
+                Background="#77BEF0"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="r"/>
+            </Border>
+            <Border
+                Name="T"
+                Tag="#77BEF0"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="305,60,0,0"
+                Background="#77BEF0"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="t"/>
+            </Border>
+            <Border
+                Name="Y"
+                Tag="#DB77F0"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="360,60,0,0"
+                Background="#DB77F0"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="y"/>
+            </Border>
+            <Border
+                Name="U"
+                Tag="#DB77F0"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="415,60,0,0"
+                Background="#DB77F0"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="u"/>
+            </Border>
+            <Border
+                Name="I"
+                Tag="#F07795"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="470,60,0,0"
+                Background="#F07795"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="i"/>
+            </Border>
+            <Border
+                Name="O"
+                Tag="#E6F077"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="525,60,0,0"
+                Background="#E6F077"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="o"/>
+            </Border>
+            <Border
+                Name="P"
+                Tag="#7FF077"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="580,60,0,0"
+                Background="#7FF077"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="p"/>
+            </Border>
+            <Border
+                Name="OemOpenBrackets"
+                Tag="#7FF077"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="635,60,0,0"
+                Background="#7FF077"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="["/>
+            </Border>
+            <Border
+                Name="Oem6"
+                Tag="#7FF077"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="690,60,0,0"
+                Background="#7FF077"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="]"/>
+            </Border>
+            <Border
+                Name="Oem5"
+                Tag="#7FF077"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="745,60,0,0"
+                Background="#7FF077"
+                Width="95" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="\"/>
+            </Border>
+
+            <Border
+                Name="Capital"
+                Tag="#B5B5B5"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="5,115,0,0"
+                Background="#B5B5B5"
+                Width="105" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="Caps Lock"/>
+            </Border>
+            <Border
+                Name="A"
+                Tag="#F07795"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="115,115,0,0"
+                Background="#F07795"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="a"/>
+            </Border>
+            <Border
+                Name="S"
+                Tag="#E6F077"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="170,115,0,0"
+                Background="#E6F077"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="s"/>
+            </Border>
+            <Border
+                Name="D"
+                Tag="#7FF077"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="225,115,0,0"
+                Background="#7FF077"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="d"/>
+            </Border>
+            <Border
+                Name="F"
+                Tag="#77BEF0"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="280,115,0,0"
+                Background="#77BEF0"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="f"/>
+            </Border>
+            <Border
+                Name="G"
+                Tag="#77BEF0"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="335,115,0,0"
+                Background="#77BEF0"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="g"/>
+            </Border>
+            <Border
+                Name="H"
+                Tag="#DB77F0"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="390,115,0,0"
+                Background="#DB77F0"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="h"/>
+            </Border>
+            <Border
+                Name="J"
+                Tag="#DB77F0"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="445,115,0,0"
+                Background="#DB77F0"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="j"/>
+            </Border>
+            <Border
+                Name="K"
+                Tag="#F07795"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="500,115,0,0"
+                Background="#F07795"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="k"/>
+            </Border>
+            <Border
+                Name="L"
+                Tag="#E6F077"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="555,115,0,0"
+                Background="#E6F077"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="l"/>
+            </Border>
+            <Border
+                Name="Oem1"
+                Tag="#7FF077"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="610,115,0,0"
+                Background="#7FF077"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content=";"/>
+            </Border>
+            <Border
+                Name="OemQuotes"
+                Tag="#7FF077"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="665,115,0,0"
+                Background="#7FF077"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="'"/>
+            </Border>
+            <Border
+                Name="Return"
+                Tag="#B5B5B5"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="720,115,0,0"
+                Background="#B5B5B5"
+                Width="120" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="Enter"/>
+            </Border>
+
+            <Border
+                Name="LeftShift"
+                Tag="#B5B5B5"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="5,170,0,0"
+                Background="#B5B5B5"
+                Width="135" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="Shift"/>
+            </Border>
+            <Border
+                Name="Z"
+                Tag="#F07795"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="145,170,0,0"
+                Background="#F07795"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="z"/>
+            </Border>
+            <Border
+                Name="X"
+                Tag="#E6F077"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="200,170,0,0"
+                Background="#E6F077"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="x"/>
+            </Border>
+            <Border
+                Name="C"
+                Tag="#7FF077"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="255,170,0,0"
+                Background="#7FF077"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="c"/>
+            </Border>
+            <Border
+                Name="V"
+                Tag="#77BEF0"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="310,170,0,0"
+                Background="#77BEF0"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="v"/>
+            </Border>
+            <Border
+                Name="B"
+                Tag="#77BEF0"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="365,170,0,0"
+                Background="#77BEF0"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="b"/>
+            </Border>
+            <Border
+                Name="N"
+                Tag="#DB77F0"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="420,170,0,0"
+                Background="#DB77F0"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="n"/>
+            </Border>
+            <Border
+                Name="M"
+                Tag="#DB77F0"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="475,170,0,0"
+                Background="#DB77F0"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="m"/>
+            </Border>
+            <Border
+                Name="OemComma"
+                Tag="#F07795"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="530,170,0,0"
+                Background="#F07795"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content=","/>
+            </Border>
+            <Border
+                Name="OemPeriod"
+                Tag="#E6F077"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="585,170,0,0"
+                Background="#E6F077"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="."/>
+            </Border>
+            <Border
+                Name="OemQuestion"
+                Tag="#7FF077"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="640,170,0,0"
+                Background="#7FF077"
+                Width="50" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="/"/>
+            </Border>
+            <Border
+                Name="RightShift"
+                Tag="#B5B5B5"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="695,170,0,0"
+                Background="#B5B5B5"
+                Width="145" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="Shift"/>
+            </Border>
+
+            <Border
+                Name="LeftCtrl"
+                Tag="#B5B5B5"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="5,225,0,0"
+                Background="#B5B5B5"
+                Width="75" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="Ctrl"/>
+            </Border>
+            <Border
+                Name="LWin"
+                Tag="#B5B5B5"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="85,225,0,0"
+                Background="#B5B5B5"
+                Width="75" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="Win"/>
+            </Border>
+            <Border
+                Name="KeySystem"
+                Tag="#B5B5B5"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="165,225,0,0"
+                Background="#B5B5B5"
+                Width="75" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="Alt"/>
+            </Border>
+            <Border
+                Name="Space"
+                Tag="#E5BB72"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="245,225,0,0"
+                Background="#E5BB72"
+                Width="335" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="Space"/>
+            </Border>
+            <Border
+                Name="RSystem"
+                Tag="#B5B5B5"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="585,225,0,0"
+                Background="#B5B5B5"
+                Width="85" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="Alt"/>
+            </Border>
+            <Border
+                Name="RWin"
+                Tag="#B5B5B5"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="675,225,0,0"
+                Background="#B5B5B5"
+                Width="80" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="Win"/>
+            </Border>
+            <Border
+                Name="RightCtrl"
+                Tag="#B5B5B5"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="760,225,0,0"
+                Background="#B5B5B5"
+                Width="80" Height="50"
+                BorderThickness="2"
+                BorderBrush="Black"
+                CornerRadius="10">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center"
+                    FontSize="20" FontFamily="Segoe UI Symbol" FontWeight="Bold" Content="Ctrl"/>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>
